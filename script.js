@@ -80,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
             mostrarMensajeExitoContacto();
             contactoForm.reset();
           }, function(error) {
-            console.error('Error EmailJS:', error);
             mostrarMensajeErrorContacto();
           })
           .finally(() => {
@@ -239,7 +238,6 @@ function handleFormSubmit(event) {
           mostrarMensajeExitoContacto();
           form.reset();
         }, function(error) {
-          console.error('Error EmailJS:', error);
           mostrarMensajeErrorContacto();
         })
         .finally(() => {
