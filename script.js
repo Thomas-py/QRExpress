@@ -86,10 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
           });
-      } else {
-        alert('No se pudo enviar la consulta. Intentalo más tarde.');
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
       }
     });
   }
@@ -244,10 +240,6 @@ function handleFormSubmit(event) {
           submitBtn.innerHTML = originalText;
           submitBtn.disabled = false;
         });
-    } else {
-      alert('No se pudo enviar la consulta. Intentalo más tarde.');
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
     }
     return;
   }
