@@ -170,19 +170,16 @@ function handleFormSubmit(event) {
 
     // Recopilar datos
     const data = {
-      nombre: form.querySelector('input[placeholder="Nombre"]').value,
-      negocio: form.querySelector('input[placeholder="Negocio"]').value,
-      consulta: form.querySelector('textarea[placeholder="Consulta"]').value,
-      fecha: new Date().toLocaleString('es-AR')
+      Nombre: form.querySelector('input[placeholder="Nombre"]').value,
+      Negocio: form.querySelector('input[placeholder="Negocio"]').value,
+      Consulta: form.querySelector('textarea[placeholder="Consulta"]').value
     };
 
     // Configuración de EmailJS
     const templateParams = {
-      to_name: 'QR Express',
-      from_name: data.nombre,
-      negocio: data.negocio,
-      consulta: data.consulta,
-      fecha: data.fecha
+      Nombre: data.Nombre,
+      Negocio: data.Negocio,
+      Consulta: data.Consulta
     };
 
     if (typeof emailjs !== 'undefined') {
