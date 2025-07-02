@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             contactoForm.reset();
           }, function(error) {
             console.error('Error EmailJS:', error);
-            alert('No se pudo enviar la consulta. Intentalo más tarde.');
+            mostrarMensajeErrorContacto();
           })
           .finally(() => {
             submitBtn.innerHTML = originalText;
@@ -240,7 +240,7 @@ function handleFormSubmit(event) {
           form.reset();
         }, function(error) {
           console.error('Error EmailJS:', error);
-          alert('No se pudo enviar la consulta. Intentalo más tarde.');
+          mostrarMensajeErrorContacto();
         })
         .finally(() => {
           submitBtn.innerHTML = originalText;
@@ -489,6 +489,127 @@ function mostrarMensajeExitoContacto() {
     }, 300);
   }
   const closeBtn = modal.querySelector('#closeModalBtnContacto');
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  const handleEsc = function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.removeEventListener('keydown', handleEsc);
+    }
+  };
+  document.addEventListener('keydown', handleEsc);
+  setTimeout(closeModal, 10000);
+}
+
+// Agregar función para mostrar el modal de error con el mismo diseño
+function mostrarMensajeErrorContacto() {
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+  `;
+  modal.innerHTML = `
+    <div style="
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    ">
+      <!-- Icono de error -->
+      <div style="
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, #ef4444, #b91c1c);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 2s infinite;
+      ">
+        <svg style=\"width: 40px; height: 40px; color: white;\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"M6 18L18 6M6 6l12 12\"></path></svg>
+      </div>
+      <!-- Título -->
+      <h3 style="
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ef4444;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ef4444, #b91c1c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      ">
+        ¡No se pudo enviar la consulta!
+      </h3>
+      <!-- Mensaje principal -->
+      <p style="
+        color: #d1d5db;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1.1rem;
+      ">
+        Ocurrió un error al intentar enviar tu consulta.<br>
+        Por favor, intenta nuevamente más tarde o contáctanos por WhatsApp.
+      </p>
+      <!-- Botón de cierre -->
+      <button id="closeModalBtnErrorContacto" style="
+        background: linear-gradient(135deg, #ef4444, #b91c1c);
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1.125rem;
+        font-weight: 600;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(239, 68, 68, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        Cerrar
+      </button>
+      <!-- Texto adicional -->
+      <p style="color: #9ca3af; font-size: 0.75rem; margin-top: 1rem;">
+        Si el problema persiste, contáctanos por WhatsApp o email.<br>Gracias por tu interés en QR Express.
+      </p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  function closeModal() {
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      if (modal.parentNode) {
+        modal.parentNode.removeChild(modal);
+      }
+    }, 300);
+  }
+  const closeBtn = modal.querySelector('#closeModalBtnErrorContacto');
   closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
