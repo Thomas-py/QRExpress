@@ -325,6 +325,7 @@ function mostrarMensajeExitoContacto() {
       color: white;
       font-family: 'Inter', sans-serif;
     ">
+      <!-- Icono de éxito -->
       <div style="
         width: 80px;
         height: 80px;
@@ -340,6 +341,7 @@ function mostrarMensajeExitoContacto() {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
         </svg>
       </div>
+      <!-- Título -->
       <h3 style="
         font-size: 2rem;
         font-weight: bold;
@@ -352,14 +354,49 @@ function mostrarMensajeExitoContacto() {
       ">
         ¡Consulta enviada!
       </h3>
+      <!-- Mensaje principal -->
       <p style="
         color: #d1d5db;
         margin-bottom: 1.5rem;
         line-height: 1.6;
         font-size: 1.1rem;
       ">
-        Tu consulta fue enviada exitosamente. <span style="color: #22d3ee; font-weight: 600;">Te responderemos a la brevedad</span>.
+        Tu consulta fue enviada exitosamente. <span style=\"color: #22d3ee; font-weight: 600;\">Te responderemos a la brevedad</span>.
       </p>
+      <!-- Información de contacto -->
+      <div style="
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+      ">
+        <div style="display: flex; justify-content: center; gap: 2rem;">
+          <div style="text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📧</div>
+            <p style="color: #10b981; font-size: 0.875rem; font-weight: 500;">Revisá tu email</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📱</div>
+            <p style="color: #10b981; font-size: 0.875rem; font-weight: 500;">Te contactaremos pronto</p>
+          </div>
+        </div>
+      </div>
+      <!-- Información adicional -->
+      <div style="
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 2rem;
+      ">
+        <p style="color: #3b82f6; font-size: 0.875rem;">
+          <strong>💡 ¿Dudas o consultas?</strong><br>
+          Siempre puedes escribirnos por WhatsApp o email.<br>
+          ¡Gracias por tu interés en QR Express!
+        </p>
+      </div>
+      <!-- Botón de cierre -->
       <button id="closeModalBtnContacto" style="
         background: linear-gradient(135deg, #22d3ee, #06b6d4);
         border: none;
@@ -381,6 +418,7 @@ function mostrarMensajeExitoContacto() {
         </svg>
         ¡Perfecto!
       </button>
+      <!-- Texto adicional -->
       <p style="color: #9ca3af; font-size: 0.75rem; margin-top: 1rem;">
         Gracias por confiar en QR Express
       </p>
