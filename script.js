@@ -75,17 +75,25 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       if (typeof emailjs !== 'undefined') {
+        console.log('EmailJS está definido, enviando...');
         emailjs.send('service_vhhj7ug', 'template_xdk5cdn', templateParams)
           .then(function(response) {
+            console.log('Éxito:', response);
             mostrarMensajeExitoContacto();
             contactoForm.reset();
           }, function(error) {
+            console.log('Error EmailJS:', error);
             mostrarMensajeErrorContacto();
           })
           .finally(() => {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
           });
+      } else {
+        console.log('EmailJS NO está definido');
+        mostrarMensajeErrorContacto();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
       }
     });
   }
