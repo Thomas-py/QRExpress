@@ -190,7 +190,8 @@ function handleFormSubmit(event) {
           mostrarMensajeExitoContacto();
           form.reset();
         }, function(error) {
-          alert('Ocurrió un error al enviar la consulta. Por favor, intentalo de nuevo.');
+          console.error('Error EmailJS:', error);
+          alert('No se pudo enviar la consulta. Intentalo más tarde.');
         })
         .finally(() => {
           submitBtn.innerHTML = originalText;
