@@ -172,6 +172,7 @@ function handleFormSubmit(event) {
     const data = {
       Nombre: form.querySelector('input[placeholder="Nombre"]').value,
       Negocio: form.querySelector('input[placeholder="Negocio"]').value,
+      Email: form.querySelector('input[placeholder="Email"]').value,
       Consulta: form.querySelector('textarea[placeholder="Consulta"]').value
     };
 
@@ -179,7 +180,8 @@ function handleFormSubmit(event) {
     const templateParams = {
       Nombre: data.Nombre,
       Negocio: data.Negocio,
-      Consulta: data.Consulta
+      Consulta: data.Consulta,
+      email: data.Email
     };
 
     if (typeof emailjs !== 'undefined') {
