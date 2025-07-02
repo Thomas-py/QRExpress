@@ -45,6 +45,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Configuración de partículas
   initParticles();
+
+  // Manejar el envío del formulario de contacto igual que el de prueba gratuita
+  const contactoForm = document.getElementById('contactoForm');
+  if (contactoForm) {
+    contactoForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const submitBtn = contactoForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '⏳ Enviando...';
+      submitBtn.disabled = true;
+
+      // Recopilar datos por ID
+      const data = {
+        nombre: contactoForm.querySelector('#contactoNombre').value,
+        negocio: contactoForm.querySelector('#contactoNegocio').value,
+        email: contactoForm.querySelector('#contactoEmail').value,
+        consulta: contactoForm.querySelector('#contactoConsulta').value,
+        fecha: new Date().toLocaleString('es-AR')
+      };
+
+      // Configuración de EmailJS
+      const templateParams = {
+        Nombre: data.nombre,
+        Negocio: data.negocio,
+        email: data.email,
+        Consulta: data.consulta,
+        fecha: data.fecha
+      };
+
+      if (typeof emailjs !== 'undefined') {
+        emailjs.send('service_vhhj7ug', 'template_xdk5cdn', templateParams)
+          .then(function(response) {
+            mostrarMensajeExitoContacto();
+            contactoForm.reset();
+          }, function(error) {
+            console.error('Error EmailJS:', error);
+            alert('No se pudo enviar la consulta. Intentalo más tarde.');
+          })
+          .finally(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          });
+      } else {
+        alert('No se pudo enviar la consulta. Intentalo más tarde.');
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
 });
 
 // Configuración de partículas de fondo
