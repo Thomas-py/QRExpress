@@ -1,0 +1,508 @@
+/* QR Express - Sistema de Reputación Digital */
+/* Estilos principales */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #111827 25%, #1f2937 50%, #111827 75%, #0a0a0a 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Efectos de glassmorphism mejorados */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(34, 211, 238, 0.3);
+}
+
+/* Gradientes animados */
+.gradient-text {
+  background: linear-gradient(135deg, #22d3ee, #06b6d4, #0891b2, #0e7490);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Efectos de hover sofisticados */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(34, 211, 238, 0.15);
+}
+
+/* Botones con efectos */
+.btn-primary {
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(34, 211, 238, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #22d3ee;
+  color: #22d3ee;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #22d3ee;
+  color: #0a0a0a;
+  transform: translateY(-2px);
+}
+
+/* Partículas de fondo */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #22d3ee, #06b6d4);
+  border-radius: 3px;
+}
+
+/* Efectos de texto */
+.text-glow {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+/* Animaciones personalizadas */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+  to { box-shadow: 0 0 30px rgba(34, 211, 238, 0.6); }
+}
+
+/* Efectos de entrada */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* WhatsApp button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+}
+
+/* Formulario estilizado */
+.form-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: white;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-input:invalid {
+  border-color: #ef4444;
+}
+
+/* Estilos específicos para el formulario de prueba gratuita */
+.form-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Estilos para el área de subida de archivos */
+.file-upload-area {
+  border: 2px dashed rgba(34, 211, 238, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.file-upload-area:hover {
+  border-color: #22d3ee;
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.file-upload-area.dragover {
+  border-color: #22d3ee;
+  background: rgba(34, 211, 238, 0.1);
+  transform: scale(1.02);
+}
+
+/* Estilos para el preview del logo */
+.logo-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+/* Estilos para el modal de éxito */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Asegurar que el modal esté visible */
+.fixed.inset-0 {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Estilos para campos requeridos */
+.required-field::after {
+  content: ' *';
+  color: #ef4444;
+}
+
+/* Estilos para validación */
+.input-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.input-success {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+}
+
+/* Estilos para el select personalizado */
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Estilos para textarea */
+textarea.form-input {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+/* Estilos para el botón de eliminar logo */
+.remove-logo-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.remove-logo-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+}
+
+/* Estilos para el loading del botón */
+.btn-loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para el modal de éxito */
+.modal-success {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-success .glass-card {
+  animation: modalSlideIn 0.4s ease-out 0.1s both;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animaciones para elementos del modal */
+.success-icon {
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(34, 211, 238, 0);
+  }
+}
+
+.decorative-circle {
+  animation: bounce 2s infinite;
+}
+
+.decorative-circle:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Backdrop blur mejorado */
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Gradientes animados para el modal */
+.modal-gradient {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(16, 185, 129, 0.1));
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glass-card {
+    margin: 0 10px;
+  }
+  
+  .whatsapp-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .whatsapp-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form-input {
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+
+  .file-upload-area {
+    padding: 1.5rem;
+  }
+
+  .modal-success .glass-card {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .success-icon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .decorative-circle {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .modal-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+} 

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Express - Sistema de Reputación Digital</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="relative">
+
+<!-- Partículas de fondo -->
+<div id="particles-js"></div>
+
+<!-- WhatsApp Button -->
+<a href="https://wa.me/5491172383034" target="_blank" class="whatsapp-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" version="1.1" id="Capa_1" width="30px" height="30px" viewBox="0 0 30.667 30.667" xml:space="preserve">
+    <g>
+      <path d="M30.667,14.939c0,8.25-6.74,14.938-15.056,14.938c-2.639,0-5.118-0.675-7.276-1.857L0,30.667l2.717-8.017   c-1.37-2.25-2.159-4.892-2.159-7.712C0.559,6.688,7.297,0,15.613,0C23.928,0.002,30.667,6.689,30.667,14.939z M15.61,2.382   c-6.979,0-12.656,5.634-12.656,12.56c0,2.748,0.896,5.292,2.411,7.362l-1.58,4.663l4.862-1.545c2,1.312,4.393,2.076,6.963,2.076   c6.979,0,12.658-5.633,12.658-12.559C28.27,8.016,22.59,2.382,15.61,2.382z M23.214,18.38c-0.094-0.151-0.34-0.243-0.708-0.427   c-0.367-0.184-2.184-1.069-2.521-1.189c-0.34-0.123-0.586-0.185-0.832,0.182c-0.243,0.367-0.951,1.191-1.168,1.437   c-0.215,0.245-0.43,0.276-0.799,0.095c-0.369-0.186-1.559-0.57-2.969-1.817c-1.097-0.972-1.838-2.169-2.052-2.536   c-0.217-0.366-0.022-0.564,0.161-0.746c0.165-0.165,0.369-0.428,0.554-0.643c0.185-0.213,0.246-0.364,0.369-0.609   c0.121-0.245,0.06-0.458-0.031-0.643c-0.092-0.184-0.829-1.984-1.138-2.717c-0.307-0.732-0.614-0.611-0.83-0.611   c-0.215,0-0.461-0.03-0.707-0.03S9.897,8.215,9.56,8.582s-1.291,1.252-1.291,3.054c0,1.804,1.321,3.543,1.506,3.787   c0.186,0.243,2.554,4.062,6.305,5.528c3.753,1.465,3.753,0.976,4.429,0.914c0.678-0.062,2.184-0.885,2.49-1.739   C23.307,19.268,23.307,18.533,23.214,18.38z"/>
+    </g>
+</svg>
+</a>
+
+<!-- Header -->
+<header class="relative z-10 py-6">
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center">
+      <div class="text-2xl font-bold gradient-text">QR Express</div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#inicio" class="text-gray-300 hover:text-cyan-400 transition-colors">Inicio</a>
+        <a href="#servicios" class="text-gray-300 hover:text-cyan-400 transition-colors">Servicios</a>
+        <a href="#planes" class="text-gray-300 hover:text-cyan-400 transition-colors">Planes</a>
+        <a href="#contacto" class="text-gray-300 hover:text-cyan-400 transition-colors">Contacto</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- 1. Inicio / Home -->
+<section id="inicio" class="relative z-10 py-32">
+  <div class="container mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 gradient-text text-glow" data-aos="fade-up">
+        Tu reputación online empieza en tu mostrador.
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Una solución completa que consigue más reseñas, visibilidad en Google y ventas reales con solo mostrar un QR en tu local.
+      </p>
+      <div class="mb-12" data-aos="fade-up" data-aos-delay="400">
+        <p class="text-lg text-gray-400 mb-4">No es solo un QR.</p>
+        <p class="text-2xl font-semibold text-cyan-400">Es un sistema de reputación que crece con vos.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-6 justify-center items-center" data-aos="fade-up" data-aos-delay="600">
+        <a href="formulario-prueba.html" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold float-animation inline-block">
+          Solicitar prueba gratuita
+        </a>
+        <button class="btn-secondary px-8 py-4 rounded-full text-lg font-semibold">
+          Ver cómo funciona
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Qué hacemos -->
+<section id="servicios" class="relative z-10 py-24">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Qué hacemos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <div class="glass-card p-8 text-center hover-lift" data-aos="flip-left" data-aos-delay="100">
+        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full flex items-center justify-center text-2xl">🔗</div>
+        <h3 class="text-xl font-semibold mb-4 text-cyan-300">QRs Inteligentes</h3>
+        <p class="text-gray-300">Generamos QRs inteligentes y personalizados que llevan directo a las reseñas de Google</p>
+      </div>
+      <div class="glass-card p-8 text-center hover-lift" data-aos="flip-left" data-aos-delay="200">
+        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full flex items-center justify-center text-2xl">🎨</div>
+        <h3 class="text-xl font-semibold mb-4 text-blue-300">Diseño Completo</h3>
+        <p class="text-gray-300">Diseñamos todo el material visual y capacitamos a tu equipo para que funcione</p>
+      </div>
+      <div class="glass-card p-8 text-center hover-lift" data-aos="flip-left" data-aos-delay="300">
+        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-full flex items-center justify-center text-2xl">📊</div>
+        <h3 class="text-xl font-semibold mb-4 text-purple-300">Seguimiento</h3>
+        <p class="text-gray-300">Medimos resultados, hacemos seguimiento y te ayudamos a escalar</p>
+      </div>
+    </div>
+    <div class="glass-card p-8 text-center max-w-2xl mx-auto pulse-glow" data-aos="fade-up">
+      <p class="text-lg text-cyan-400 font-semibold">🎁 Bonus: Si no te sirve, lo retiramos. Sin preguntas, sin compromiso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. ¿Esto te pasa en tu negocio? -->
+<section class="relative z-10 py-24 bg-black/20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">¿Esto te pasa en tu negocio?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="glass-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-start">
+          <span class="text-red-400 text-2xl mr-4 mt-1">❌</span>
+          <p class="text-gray-300 text-lg">Tus clientes están contentos, pero no dejan reseñas</p>
+        </div>
+      </div>
+      <div class="glass-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-start">
+          <span class="text-red-400 text-2xl mr-4 mt-1">❌</span>
+          <p class="text-gray-300 text-lg">Te buscan en Google y aparecés con pocas estrellas o sin comentarios</p>
+        </div>
+      </div>
+      <div class="glass-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-start">
+          <span class="text-red-400 text-2xl mr-4 mt-1">❌</span>
+          <p class="text-gray-300 text-lg">Tenés buen servicio, pero nadie lo ve online</p>
+        </div>
+      </div>
+      <div class="glass-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="400">
+        <div class="flex items-start">
+          <span class="text-red-400 text-2xl mr-4 mt-1">❌</span>
+          <p class="text-gray-300 text-lg">No aparecés en los primeros resultados</p>
+        </div>
+      </div>
+      <div class="glass-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="500">
+        <div class="flex items-start">
+          <span class="text-red-400 text-2xl mr-4 mt-1">❌</span>
+          <p class="text-gray-300 text-lg">Probaste redes sociales o publicidad, pero nada te trajo resultados concretos</p>
+        </div>
+      </div>
+      <div class="glass-card p-8 hover-lift" data-aos="fade-up" data-aos-delay="600">
+        <div class="flex items-start">
+          <span class="text-red-400 text-2xl mr-4 mt-1">❌</span>
+          <p class="text-gray-300 text-lg">Ya no sabés cómo competir con negocios que tienen más visibilidad</p>
+        </div>
+      </div>
+    </div>
+    
+    <p class="text-xl text-cyan-400 font-semibold text-center max-w-3xl mx-auto mt-12">Si te identificaste con alguno de estos problemas, tenemos la solución.</p>
+    
+    <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="200">
+      <a href="formulario-prueba.html" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">
+        ¡Quiero solucionarlo!
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Cómo funciona -->
+<section class="relative z-10 py-24">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Cómo funciona</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <div class="glass-card p-6 text-center hover-lift" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-lg font-bold">1</div>
+        <p class="text-gray-300">Te entregamos el QR y el material visual ya listo</p>
+      </div>
+      <div class="glass-card p-6 text-center hover-lift" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-lg font-bold">2</div>
+        <p class="text-gray-300">Lo colocás en tu mostrador, vitrina o donde quieras</p>
+      </div>
+      <div class="glass-card p-6 text-center hover-lift" data-aos="fade-up" data-aos-delay="300">
+        <div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-lg font-bold">3</div>
+        <p class="text-gray-300">Tus clientes lo escanean y dejan su reseña</p>
+      </div>
+      <div class="glass-card p-6 text-center hover-lift" data-aos="fade-up" data-aos-delay="400">
+        <div class="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center text-lg font-bold">4</div>
+        <p class="text-gray-300">Tu reputación crece, subís en Google y atraés más clientes</p>
+      </div>
+    </div>
+    
+    <!-- Imagen del producto -->
+    <div class="max-w-4xl mx-auto mb-12" data-aos="zoom-in" data-aos-delay="500">
+      <div class="glass-card p-8 text-center">
+        <h3 class="text-2xl font-semibold mb-6 text-cyan-300">Así se ve en tu negocio</h3>
+        <div class="relative">
+          <img 
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+            alt="QR Express en mostrador de negocio" 
+            class="w-full max-w-2xl mx-auto rounded-lg shadow-2xl transition-transform duration-300"
+          />
+          <!-- Overlay con QR simulado -->
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-lg shadow-lg">
+            <div class="w-24 h-24 bg-gray-900 rounded-lg flex items-center justify-center">
+              <div class="w-20 h-20 bg-white rounded flex items-center justify-center">
+                <div class="w-16 h-16 bg-black rounded"></div>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600 mt-2 font-semibold">QR Express</p>
+          </div>
+        </div>
+        <p class="text-gray-300 mt-6 text-lg">Diseño profesional que se integra perfectamente con tu marca</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Nosotros -->
+<section class="relative z-10 py-24 bg-black/20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Nosotros</h2>
+    <div class="max-w-4xl mx-auto">
+      <div class="glass-card p-12" data-aos="fade-up">
+        <p class="text-xl text-gray-300 mb-6 leading-relaxed">
+          Somos Thomas y Albana, dos programadores con foco 100% en crear soluciones reales para negocios reales.
+        </p>
+        <p class="text-xl text-gray-300 mb-6 leading-relaxed">
+          Nos especializamos en automatizar procesos simples que tienen un impacto real: reseñas, visibilidad, presencia digital y conversión.
+        </p>
+        <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+          Esto no es un “experimento”, es nuestra forma de aprender, crecer y ayudar desde el primer día.
+        </p>
+        <div class="border-t border-gray-700 pt-8 text-center">
+          <p class="text-lg text-cyan-400 font-semibold">
+            Te damos herramientas simples, medibles y con resultados. Porque lo que hacés bien en tu negocio, merece destacarse en internet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Planes / Membresía -->
+<section id="planes" class="relative z-10 py-24">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Planes</h2>
+    <div class="max-w-2xl mx-auto">
+      <div class="glass-card p-12 text-center" data-aos="fade-up">
+        <h3 class="text-3xl font-bold mb-4 gradient-text">QR Express</h3>
+        
+        <!-- Oferta especial -->
+        <div class="bg-gradient-to-r from-red-500 to-orange-500 p-3 rounded-lg mb-6">
+          <p class="text-white font-bold text-lg">🔥 OFERTA ESPECIAL - Primeros Clientes</p>
+        </div>
+        
+        <div class="mb-6">
+          <div class="flex items-center justify-center gap-4 mb-2">
+            <span class="text-3xl text-gray-400 line-through">$20.000</span>
+            <span class="text-5xl font-bold text-cyan-400">$14.900</span>
+          </div>
+          <div class="text-right text-sm text-gray-400 mb-2">($20 USD)</div>
+          <div class="bg-green-500/20 border border-green-500/30 rounded-lg p-3">
+            <p class="text-green-400 font-semibold">💰 Ahorrás $5.100 por mes</p>
+          </div>
+        </div>
+        
+        <div class="space-y-4 mb-8 text-left">
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">QR personalizado con diseño profesional</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">Material visual para el local y redes</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">Capacitación para pedir reseñas</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">QRs adicionales ilimitados (menú, redes, WiFi, promociones, etc.)</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">Página de sugerencias anónimas</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">Métricas y seguimiento</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">✓</span>
+            <span class="text-gray-300">Soporte directo por WhatsApp</span>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-4 rounded-lg mb-6">
+          <p class="text-white font-semibold">🔓 14 días de prueba gratuita</p>
+        </div>
+        
+        <p class="text-gray-400 mb-8">❌ Sin compromiso. Sin preguntas.</p>
+        
+        <a href="formulario-prueba.html" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold w-full inline-block text-center">
+          Comenzar prueba gratuita
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Contacto -->
+<section id="contacto" class="relative z-10 py-24 bg-black/20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text" data-aos="fade-up">Contacto</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-2xl font-semibold mb-6 text-cyan-300">Información de contacto</h3>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">📞</span>
+            <span class="text-gray-300">
+              <a href="https://wa.me/5491172383034" class="underline">Enviar mensaje de WhatsApp</a>
+            </span>
+          </div>
+          <!-- <div class="flex items-center">
+            <span class="text-cyan-400 mr-3">📬</span>
+            <span class="text-gray-300">soporte@qrexpress.com</span>
+          </div> -->
+        </div>
+      </div>
+      
+      <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-2xl font-semibold mb-6 text-cyan-300">Formulario de contacto</h3>
+        <form class="space-y-4">
+          <input type="text" placeholder="Nombre" class="form-input w-full" required>
+          <input type="text" placeholder="Negocio" class="form-input w-full" required>
+          <textarea placeholder="Consulta" rows="4" class="form-input w-full" required></textarea>
+          <button type="submit" class="btn-primary px-6 py-3 rounded-lg w-full">
+            Enviar consulta
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative z-10 py-12 bg-black/50">
+  <div class="container mx-auto px-6 text-center">
+    <p class="text-gray-400">© 2025 QR Express. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
