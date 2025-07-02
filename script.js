@@ -154,9 +154,51 @@ function handleFormSubmit(event) {
   }
   
   event.preventDefault();
-  
-  // Aquí puedes agregar la lógica para enviar el formulario
-  // Por ejemplo, enviar a un endpoint o mostrar un mensaje de confirmación
+
+  // Detectar si es el formulario de contacto
+  if (event.target.closest('section#contacto')) {
+    const form = event.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '⏳ Enviando...';
+    submitBtn.disabled = true;
+
+    // Recopilar datos
+    const data = {
+      nombre: form.querySelector('input[placeholder="Nombre"]').value,
+      negocio: form.querySelector('input[placeholder="Negocio"]').value,
+      consulta: form.querySelector('textarea[placeholder="Consulta"]').value,
+      fecha: new Date().toLocaleString('es-AR')
+    };
+
+    // Configuración de EmailJS
+    const templateParams = {
+      to_name: 'QR Express',
+      from_name: data.nombre,
+      negocio: data.negocio,
+      consulta: data.consulta,
+      fecha: data.fecha
+    };
+
+    if (typeof emailjs !== 'undefined') {
+      emailjs.send('service_g4flube', 'template_5w7v1qk', templateParams)
+        .then(function(response) {
+          mostrarMensajeExitoContacto();
+          form.reset();
+        }, function(error) {
+          alert('Ocurrió un error al enviar la consulta. Por favor, intentalo de nuevo.');
+        })
+        .finally(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        });
+    } else {
+      alert('No se pudo enviar la consulta. Intentalo más tarde.');
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
+    return;
+  }
   
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
@@ -252,4 +294,121 @@ function initLazyLoading() {
 }
 
 // Inicializar lazy loading
-document.addEventListener('DOMContentLoaded', initLazyLoading); 
+document.addEventListener('DOMContentLoaded', initLazyLoading);
+
+// Función para mostrar mensaje de éxito del formulario de contacto
+function mostrarMensajeExitoContacto() {
+  const modal = document.createElement('div');
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+  `;
+  modal.innerHTML = `
+    <div style="
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    ">
+      <div style="
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 2s infinite;
+      ">
+        <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      <h3 style="
+        font-size: 2rem;
+        font-weight: bold;
+        color: #22d3ee;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #22d3ee, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      ">
+        ¡Consulta enviada!
+      </h3>
+      <p style="
+        color: #d1d5db;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1.1rem;
+      ">
+        Tu consulta fue enviada exitosamente. <span style="color: #22d3ee; font-weight: 600;">Te responderemos a la brevedad</span>.
+      </p>
+      <button id="closeModalBtnContacto" style="
+        background: linear-gradient(135deg, #22d3ee, #06b6d4);
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1.125rem;
+        font-weight: 600;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 25px rgba(34, 211, 238, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        ¡Perfecto!
+      </button>
+      <p style="color: #9ca3af; font-size: 0.75rem; margin-top: 1rem;">
+        Gracias por confiar en QR Express
+      </p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  function closeModal() {
+    modal.style.opacity = '0';
+    modal.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      if (modal.parentNode) {
+        modal.parentNode.removeChild(modal);
+      }
+    }, 300);
+  }
+  const closeBtn = modal.querySelector('#closeModalBtnContacto');
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  const handleEsc = function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.removeEventListener('keydown', handleEsc);
+    }
+  };
+  document.addEventListener('keydown', handleEsc);
+  setTimeout(closeModal, 10000);
+} 
