@@ -1,6 +1,11 @@
 // QR Express - Sistema de Reputación Digital
 // Scripts principales
 
+// Inicializar EmailJS con tu User ID
+if (typeof emailjs !== 'undefined') {
+  emailjs.init("y99EduzXQSRNo5N45");
+}
+
 // Inicialización de AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function() {
   AOS.init({
@@ -181,7 +186,7 @@ function handleFormSubmit(event) {
     };
 
     if (typeof emailjs !== 'undefined') {
-      emailjs.send('service_g4flube', 'template_5w7v1qk', templateParams)
+      emailjs.send('service_vhhj7ug', 'template_xdk5cdn', templateParams)
         .then(function(response) {
           mostrarMensajeExitoContacto();
           form.reset();
